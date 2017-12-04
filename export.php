@@ -8,7 +8,7 @@
 
 	// Create new PHPExcel object
 	//echo date('H:i:s') , " Create new PHPExcel object" , EOL;
-	$objPHPExcel = new PHPExcel();
+	$objPHPExcel = new PHPExcel();	
 
 	//find row and column size in DB
 	try
@@ -24,12 +24,19 @@
 	$result = $query->fetchAll();
 
 	// Add column names to spreadsheet
-	// column names must be updated here as per table
+	// column names must be updated here as per table	
 	$objPHPExcel->setActiveSheetIndex(0)
 	            ->setCellValue('A1', 'indexid')
 	            ->setCellValue('B1', 'username')
 	            ->setCellValue('C1', 'password')
 	            ->setCellValue('D1', 'aaa');
+
+	//column names in bold text
+	$row = $objPHPExcel->getActiveSheet()->getRowIterator(1)->current();
+	$cellIterator = $row->getCellIterator();
+	$cellIterator->setIterateOnlyExistingCells(false);
+	foreach ($cellIterator as $cell)
+	   $cell->getStyle()->getFont()->setBold(true);
 
 	// column names must be updated here as per table
 	$columns_array = array('indexid', 'username', 'password', 'aaa');	

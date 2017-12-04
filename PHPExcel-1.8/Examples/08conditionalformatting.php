@@ -128,7 +128,7 @@ $objPHPExcel->getActiveSheet()->duplicateConditionalStyle(
 
 // Set fonts
 echo date('H:i:s') , " Set fonts" , EOL;
-$objPHPExcel->getActiveSheet()->getStyle('A1:B1')->getFont()->setBold(true);
+$objPHPExcel->getActiveSheet()->getStyle('A1:B1:A6')->getFont()->setBold(true);
 //$objPHPExcel->getActiveSheet()->getStyle('B1')->getFont()->setBold(true);
 $objPHPExcel->getActiveSheet()->getStyle('A7:B7')->getFont()->setBold(true);
 //$objPHPExcel->getActiveSheet()->getStyle('B7')->getFont()->setBold(true);
